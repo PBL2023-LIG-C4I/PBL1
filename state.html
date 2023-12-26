@@ -27,6 +27,56 @@
   <meta name="theme-color" content="#7952b3">
 
 
+<<<<<<< HEAD
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .form-signin {
+      max-width: 300px;
+      margin: auto;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .state {
+      text-align: center;
+    }
+
+    .form-signin {
+      position: absolute;
+      bottom: 50px;
+      right: 50px;
+    }
+
+    h1 {
+  font-size: 100px;
+  font-weight: bold;
+}
+
+#currentState{
+  font-size: 45px;
+}
+  </style>
+=======
+>>>>>>> c3763d988116af8499d87328bedbd30176a91dc1
 
 
   <!-- Custom styles for this template -->
@@ -40,40 +90,32 @@
       <div>
         <h3 class="float-md-start mb-0">HAVC</h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="connect.html">Disconnect</a>
         </nav>
       </div>
     </header>
 
     <main class="px-3">
       <div class="row mt-2">
-        <div class="col">
+        <div class="col-6">
           <h1>HAVC</h1>
           <h1>LIG Nex1</h1>
         </div>
-        <div class="col">
+        <div class="col-6">
           <div class="state">
-            <h1>Current State</h1>
+            <h2>Current State</h2>
             <div id="currentState"></div>
           </div>
         </div>
       </div>
       
 
-      <form class="form-signin">
-        <div class="form-floating">
+      <form id="loginForm" class="form-signin d-flex">
+        <div class="form-floating flex-grow-1 me-3">
           <h3 class="h3 mb-3 fw-normal">Admin Password</h3>
           <input type="password" class="form-control" id="floatingInput">
         </div>
-
-        <div class="row mt-3">
-          <div class="col">
-            <button type="button" class="w-100 btn btn-lg btn-primary" onclick="alert('Disconnect button clicked');">Disconnect</button>
-          </div>
-          <div class="col">
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
-          </div>
-        </div>
+        <button type="submit" class="btn btn-lg btn-primary align-self-end">Login</button>
       </form>
 
     </main>
@@ -114,7 +156,7 @@
     event.preventDefault();
 
     // 후에 로그인 로직 구현
-    var password = document.getElementById("floatingInput").value; // 입력된 비밀번호를 가져옵니다.
+    var password = document.getElementById("floatingInput").value;
 
     // 비밀번호가 "0000"인 경우에만 로그인 성공으로 가정하고 페이지 이동
     if (password === "0000") {
@@ -124,7 +166,7 @@
       // 로그인 실패 시 메시지 출력
       alert("비밀번호가 올바르지 않습니다.");
     }
-  });
+    });
 
   </script>
 
