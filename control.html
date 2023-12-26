@@ -28,6 +28,20 @@
 
 
   <style>
+        .disabled {
+  display: none;
+}
+
+    #temperature {
+      font-size: 180px;
+      font-weight: bold;
+    }
+
+    #unit {
+      font-size: 35px;
+      font-weight: bold;
+    }
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -36,30 +50,26 @@
       user-select: none;
     }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
+
 
     button {
       border: none;
-      /* 테두리 제거 */
       padding: 0;
-      /* 내부 여백 제거 */
       background-color: transparent;
-      /* 배경색 투명하게 설정 */
     }
 
     button img {
       border: none;
-      /* 이미지 주변 테두리 제거 */
       display: block;
-      /* 이미지를 블록 레벨 요소로 표시하여 가로 정렬 */
       margin: 0 auto;
-      /* 가운데 정렬 */
-      width: 60px; /* 원하는 너비(px)로 설정 */
-      height: 50px; /* 원하는 높이(px)로 설정 */
+      width: 60px;
+      height: 50px;
+    }
+
+    .controlBtn img {
+      width: 130px;
+      height: 100px;
+      margin-bottom: 10px;
     }
   </style>
 
@@ -75,44 +85,75 @@
       <div>
         <h3 class="float-md-start mb-0">HAVC</h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">전원</a>
-          <a class="nav-link" href="stat.html">Logout</a>
+          <a class="nav-link" href="#" onclick="powerOff()">전원</a>
+          <a class="nav-link" href="state.html">Logout</a>
         </nav>
       </div>
     </header>
 
     <main class="px-3">
-      <p class="state">
-      <h1>Current State</h1>
-      <div id="currentState"></div>
-      </p>
-      <span id="temperature"></span>
-      <div class="temperature-control">
-        <button id="decreaseBtn">
-          <img src="image\-.png" alt="Heat Image">
-        </button>
-        <button id="increaseBtn">
-          <img src="image\+.png" alt="Heat Image">
-        </button>
+
+      <div class="container">
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="row">
+          <!-- 맨 위 state -->
+          <p class="state">
+          <h1>Current State</h1>
+          <div id="currentState"></div>
+          </p>
+        </div>
+
+
+          <div class="row controlScreen">
+            <div class="col-md-5 col-md-offset-2 text-right">
+              <!--온도 표시-->
+              <span id="temperature"></span><span id="unit">°C</span>
+            </div>
+            <div class="col-md-1" style="display: flex; flex-direction: column; align-items: center;">
+              <br><br><br><br><br>
+              <button id="decreaseBtn">
+                <img src="image/-.png" alt="Heat Image">
+              </button>
+              <button id="increaseBtn">
+                <img src="image/+.png" alt="Heat Image">
+              </button>
+            </div>
+
+            <div class="col-md-6">
+              <!-- 중간 줄 오른쪽 영역 : 풍량/풍향 -->
+              <img id="airImage" src="image/풍량_0.png" alt="Air Image" usemap="#imagemap">
+              <map name="imagemap">
+                <area shape="rect" coords="160, 50, 200, 85" onclick="increaseAirVolume()">
+                <area shape="rect" coords="160, 280, 200, 290" onclick="decreaseAirVolume()">
+              </map>
+            </div>
+          </div>
+
+        <div class="row">
+          <div class="col-6 controlScreen"><!-- 마지막 줄 왼쪽 영역 -->
+            <br><br>
+            <button class="controlBtn tab">
+              <img class="tab-icon" src="image/HEAT_off.png" alt="Heat Image">
+            </button class="controlBtn tab">
+            <button class="controlBtn tab">
+              <img class="tab-icon" src="image/COOL_off.png" alt="Cool Image">
+            </button>
+            <button class="controlBtn tab">
+              <img class="tab-icon" src="image/AUTO_off.png" alt="Auto Image">
+            </button>
+          </div>
+          <div class="col-6"><!-- 마지막 줄 오른쪽 영역 -->
+            <br><br>
+            <button class="controlBtn">
+              <img src="image/Report_Button.png" alt="Report Image">
+            </button>
+            <button class="controlBtn">
+              <img src="image/Setting_Button.png" alt="Setting Image">
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="mode-buttons">
-        <button>
-          <img src="image\HEAT_off.png" alt="Heat Image">
-        </button>
-        <button>
-          <img src="image\COOL_off.png" alt="Cool Image">
-        </button>
-        <button>
-          <img src="image\AUTO_off.png" alt="Auto Image">
-        </button>
-        <button>
-          <img src="image\Report_Button.png" alt="Report Image">
-        </button>
-        <button>
-          <img src="image\Setting_Button.png" alt="Setting Image">
-        </button>
-      </div>
+
 
     </main>
 
@@ -122,6 +163,12 @@
   </div>
 
   <script>
+
+function powerOff() {
+      const controlScreen = document.querySelector('.controlScreen');
+      controlScreen.classList.toggle('disabled');
+    }
+
     function displayCurrentState() {
       // 예시로 임의의 온도와 습도를 생성
       var temperature = Math.floor(Math.random() * 30) + 10; // 10에서 39 사이의 임의의 수
@@ -131,7 +178,7 @@
       var airQualityStatus = calculateAirQualityStatus(); // 상태를 계산하는 함수 (실제 상태를 계산하여 값을 반환해야 함)
 
       // 현재 온도와 습도, 공기 상태를 문자열로 만들기
-      var currentStateInfo = "온도: " + temperature + "도, 습도: " + humidity + "%, 공기 상태: " + airQualityStatus;
+      var currentStateInfo = "온도: " + temperature + "°C, 습도: " + humidity + "%, 공기 상태: " + airQualityStatus;
 
       // HTML 요소에 현재 상태 정보를 출력
       document.getElementById("currentState").innerText = currentStateInfo;
@@ -178,6 +225,69 @@
 
     // 페이지 로드 시 초기 온도 표시
     updateTemperatureDisplay();
+
+    var tab = document.querySelectorAll(".tab");
+    var click = true;
+
+    function handleClick(element) {
+      var btnTarget = element.currentTarget;
+      var Img = btnTarget.querySelector(".tab-icon");
+
+      if (btnTarget.click) {
+        Img.src = Img.src.replace("HEAT_off.png", "HEAT_ON.png");
+        Img.src = Img.src.replace("COOL_off.png", "COOL_ON.png");
+        Img.src = Img.src.replace("AUTO_off.png", "AUTO_ON.png");
+      } else {
+        Img.src = Img.src.replace("image/HEAT_ON.png", "image/HEAT_off.png");
+        Img.src = Img.src.replace("COOL_ON.png", "COOL_off.png");
+        Img.src = Img.src.replace("AUTO_ON.png", "AUTO_off.png");
+
+        btnTarget.style.boxShadow = "none";
+      }
+      btnTarget.click = !btnTarget.click;
+    }
+
+    for (var i = 0; i < tab.length; i++) {
+      tab[i].addEventListener("click", handleClick);
+    }
+
+    // 풍량 up down
+    var airVolume = 0;
+
+    function increaseAirVolume() {
+      if (airVolume < 5) {
+        airVolume++;
+        updateImage();
+      }
+    }
+
+    function decreaseAirVolume() {
+      if (airVolume > 0) {
+        airVolume--;
+        updateImage();
+      }
+    }
+
+    function updateImage() {
+      var imageElement = document.getElementById("airImage");
+
+      if (airVolume === 0) {
+        imageElement.src = "image/풍량_0.png";
+      } else if (airVolume === 1) {
+        imageElement.src = "image/풍량_1.png";
+      } else if (airVolume === 2) {
+        imageElement.src = "image/풍량_2.png";
+      } else if (airVolume === 3) {
+        imageElement.src = "image/풍량_3.png";
+      } else if (airVolume === 4) {
+        imageElement.src = "image/풍량_4.png";
+      } else if (airVolume === 5) {
+        imageElement.src = "image/풍량_5.png";
+      }
+    }
+
+    
+
   </script>
 
 </body>
