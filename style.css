@@ -1,0 +1,95 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  .form-signin {
+    max-width: 300px;
+    /* 입력 폼의 최대 너비를 300px로 설정 */
+    margin: auto;
+    /* 가운데 정렬 */
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .state {
+    text-align: center;
+  }
+
+  .form-signin {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+  }
+
+button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+button img {
+  border: none;
+  display: block;
+  margin: 0 auto;
+  width: 60px; 
+  height: 50px; 
+}
+
+.disabled {
+  display: none;
+}
+
+    #temperature {
+      font-size: 180px;
+      font-weight: bold;
+    }
+
+    #unit {
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+
+
+    button {
+      border: none;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    button img {
+      border: none;
+      display: block;
+      margin: 0 auto;
+      width: 60px;
+      height: 50px;
+    }
+
+    .controlBtn img {
+      width: 130px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
