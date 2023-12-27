@@ -1,3 +1,5 @@
+
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -54,4 +56,114 @@ button img {
   /* 가운데 정렬 */
   width: 60px; /* 원하는 너비(px)로 설정 */
   height: 50px; /* 원하는 높이(px)로 설정 */
+}
+
+.logo_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.logo_box_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.logo_box_btn {
+  margin-right: 1rem;
+}
+
+.control_main_box {
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.side_panel {
+  width: 14rem;
+  height: 14rem;
+  background: rgb(66,183,130);
+  background: linear-gradient(163deg, rgba(66,183,130,1) 0%, rgba(56,149,103,1) 44%);
+  border-radius: 0.5rem;
+  margin-right: 2rem;
+  margin-left: 3rem;
+  padding-top: 0.5rem;
+}
+
+.side_panel_elements {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  cursor:pointer;
+  padding: 0.1rem 0 0.1rem 0;
+  padding-left: 4rem; /*유지보수 필요*/
+  margin: 1rem 0 1rem 0;
+}
+
+.side_panel_elements_p {
+  margin: 0;
+  margin-left: 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+.px-3 {
+  margin: 0 4rem 0 4rem;
+  border-style: solid;
+  border-radius: 0.4rem;
+  width: 60rem;
+  height: 39rem;
+}
+
+.control_upper_box {
+  margin-left: -34rem;
+}
+
+.upper_power {
+  width: 6rem
+}
+
+.upper_status {
+  width: 16rem;
+}
+
+
+.temp_and_wind_p {
+  margin-top: -1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wind_power1 {
+  margin-left: 4rem;
+  width: 14rem;
+}
+
+
+
+.temp_display_box {
+  display: flex;
+}
+
+.celsius {
+  font-size: 4rem;
+  margin-top: 4rem;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.temperature-control {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rem;
+}
+
+.control_btn {
+  width: auto; 
+  height: auto;
+  max-width: 5.5rem;
+
 }

@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en" class="h-100">
-
+  
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
@@ -12,7 +13,9 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
 
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap core CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -36,50 +39,118 @@
 <body class="d-flex h-100 text-center text-white bg-dark">
 
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="mb-auto">
-      <div>
-        <h3 class="float-md-start mb-0">HAVC</h3>
-        <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">전원</a>
-          <a class="nav-link" href="stat.html">Logout</a>
-        </nav>
+    <header class="mb-auto" style="margin-top: 3rem; margin-left: 3rem; ">
+        <div class="logo_box">
+          <div class="logo_box_text">
+            <h3 class="float-md-start mb-0" style="font-size: 3.5rem; font-family: 'Gothic A1', sans-serif; color:ghostwhite; color: darkgray;">NEX1 HAVC</h3>
+            <h4 style="color:snow;">Your Smart HVAC Control Companion</h4>
+          </div>
+
+          <div class="logo_box_btn">
+            <nav class="nav nav-masthead justify-content-center float-md-end" style="background-color: rgba(66,183,130,1); border-radius: 0.5rem;">
+              <a class="nav-link active" aria-current="page" href="#" style="font-family: 'Gothic A1', sans-serif; color:white; font-weight: 600; border-style: solid;">Home</a>
+              <a class="nav-link" href="#" style="font-family: 'Gothic A1', sans-serif; color:white; font-weight: 600; border-style: solid;">전원</a>
+              <a class="nav-link" href="stat.html" style="font-family: 'Gothic A1', sans-serif; color:white; font-weight: 600; border-style: solid;">Logout</a>
+            </nav>
+        </div>
       </div>
     </header>
 
-    <main class="px-3">
-      <p class="state">
-      <h1>Current State</h1>
-      <div id="currentState"></div>
-      </p>
-      <span id="temperature"></span>
-      <div class="temperature-control">
-        <button id="decreaseBtn">
-          <img src="image\-.png" alt="Heat Image">
-        </button>
-        <button id="increaseBtn">
-          <img src="image\+.png" alt="Heat Image">
-        </button>
+    <div class="control_main_box">
+    <div class="side_panel">
+      <div class="side_panel_elements">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+          <path d="M7.5 1v7h1V1h-1z"/>
+          <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+        </svg>
+        <p class="side_panel_elements_p">
+          CONNECT
+        </p>
       </div>
+      <div class="side_panel_elements">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+          <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+          <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+        </svg>
+        <p class="side_panel_elements_p">
+          CONTROL
+        </p>
+      </div>
+      <div class="side_panel_elements">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart-line" viewBox="0 0 16 16">
+          <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
+        </svg>
+        <p class="side_panel_elements_p">
+          STATUS
+        </p>
+      </div>
+      <div class="side_panel_elements">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+        </svg>
+        <p class="side_panel_elements_p">
+          REGISTER
+        </p>
+      </div>
+    </div>
+    <main class="px-3" style="background: rgb(58,55,55);
+    background: radial-gradient(circle, rgba(58,55,55,1) 0%, rgba(33,37,41,1) 51%);">
+      
+
+
+      <div class="control_upper_box">
+        <img src="image\Power_on.png" class="upper_power">
+        <img src="image\upper_status.png" class="upper_status">
+      </div>
+      
+      <div class="temp_and_wind_p">
+        <div class="temp_display_box">
+          <span id="temperature" style="font-size: 16rem; font-weight: 600;"></span>
+          <p class="celsius">°C</p>
+
+          <div class="temperature-control">
+            <button id="increaseBtn">
+              <img src="image\+.png" alt="Heat Image" class="control_btn">
+            </button>
+          
+            <button id="decreaseBtn">
+              <img src="image\-.png" alt="Heat Image" class="control_btn">
+            </button>
+          </div>
+            
+        </div>
+        
+        <div class="wind_power">
+          <img src="image\wind_p3.png" class="wind_power1">
+        </div>
+    </div>
+
+
       <div class="mode-buttons">
-        <button>
-          <img src="image\HEAT_off.png" alt="Heat Image">
+        <button style="color: white;">
+          <img src="image\HEAT_off.png" alt="Heat Image" class="control_btn">
+          HEAT
         </button>
-        <button>
-          <img src="image\COOL_off.png" alt="Cool Image">
+        <button style="color: white;">
+          <img src="image\COOL_off.png" alt="Cool Image" class="control_btn">
+          COOL
         </button>
-        <button>
-          <img src="image\AUTO_off.png" alt="Auto Image">
+        <button style="color: white;">
+          <img src="image\AUTO_off.png" alt="Auto Image" class="control_btn">
+          AUTO
         </button>
-        <button>
-          <img src="image\Report_Button.png" alt="Report Image">
+        <button style="color: white;">
+          <img src="image\Report_Button.png" alt="Report Image" class="control_btn">
+          REPORT
         </button>
-        <button>
-          <img src="image\Setting_Button.png" alt="Setting Image">
+        <button style="color: white;">
+          <img src="image\Setting_Button.png" alt="Setting Image" class="control_btn">
+          SETTINGS
         </button>
       </div>
 
     </main>
+  </div>
 
     <footer class="mt-auto text-white-50">
 
